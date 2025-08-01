@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TalkBuddy</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="logo">TalkBuddy</div>
+    <ul class="nav-links"> 
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#text">Text</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul> 
+  </nav> 
+
+  <!-- Home Section -->
+  <section id="home" class="page-section">
+    <h2>Welcome to TalkBuddy</h2>
+    <p>
+      TalkBuddy is your personal companion for seamless communication through text and speech.
+      Whether you're typing a message or speaking naturally, TalkBuddy transforms your interaction into a smooth and efficient experience.
+      It's designed to help you express yourself faster, easier, and smarter.
+    </p>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="page-section">
+    <h2>About</h2>
+    <p>
+      TalkBuddy is a web-based tool designed to assist users in converting text into speech (Text-to-Speech) and speech into text (Speech-to-Text) seamlessly.
+    </p>
+    <p>Key features include:</p>
+    <ul>
+      <li>🔊 Real-time text-to-speech using multiple voices</li>
+      <li>🎤 Speech recognition to convert your spoken words into typed text</li>
+      <li>💾 Note-saving functionality for storing quick ideas or memos</li>
+      <li>📱 Designed to be responsive for both desktop and mobile use</li>
+    </ul>
+  </section>
+
+  <!-- Text Section -->
+  <section id="text" class="page-section">
+    <h2>Text</h2>
+    <textarea placeholder="Type or speak something..."></textarea>
+
+    <div class="text-controls-wrapper">
+      <div class="voice_selector">
+        <label for="voiceSelect">Choose voice:</label>
+        <select id="voiceSelect"></select>
+      </div>
+
+      <div class="controls">
+        <button class="speak-btn" onclick="speak()">🔊 Speak</button>
+        <button class="speak_type-btn" onclick="speak_type()">🎤 Speak to Type</button>
+        <button class="note-btn" onclick="note_save()">💾 Save Notes</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="page-section">
+    <h2>Contact</h2>
+    <p>Have questions, feedback, or ideas to improve this tool? Feel free to reach out!</p>
+    <ul>
+      <li>📧 Email: <a href="mailto:indhiran0807@gmail.com">indhiran0807@gmail.com</a></li>
+      <li>💼 LinkedIn: <a href="https://www.linkedin.com/in/indhiran-narayanamoorhi-229a87324/" target="_blank">https://www.linkedin.com/in/indhiran-narayanamoorhi-229a87324/</a></li>
+      <li>🧑‍💻 GitHub: <a href="https://github.com/Indhiran8214" target="_blank">https://github.com/Indhiran8214</a></li>
+      <li>📍 Location: Hindusthan Institute of Technology, Coimbatore, India</li>
+    </ul>
+    <p>
+      I'm currently a 3rd-year B.Tech IT student and always open to collaboration or internships related to web development, accessibility tools, or AI applications.
+    </p>
+  </section>
+
+  <!-- JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
