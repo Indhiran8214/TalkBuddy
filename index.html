@@ -1,0 +1,222 @@
+-M <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TalkBuddy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Ambient background orbs -->
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+  <div class="bg-orb orb-3"></div>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="logo">
+      <span class="logo-icon">🗣</span>
+      <span>TalkBuddy</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#home" class="nav-link">Home</a></li>
+      <li><a href="#about" class="nav-link">About</a></li>
+      <li><a href="#text" class="nav-link">Studio</a></li>
+      <li><a href="#contact" class="nav-link">Contact</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Home Section -->
+  <section id="home" class="page-section hero-section">
+    <div class="hero-badge">Voice · Text · Intelligence</div>
+    <h1 class="hero-title">
+      Speak your mind.<br>
+      <span class="gradient-text">Type it out.</span>
+    </h1>
+    <p class="hero-sub">
+      TalkBuddy transforms how you communicate — convert speech to text and text to speech with powerful voice controls, all in your browser.
+    </p>
+    <a href="#text" class="hero-cta">
+      <span>Open Studio</span>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+    <div class="hero-wave">
+      <div class="wave-bar" style="--h:40%"></div>
+      <div class="wave-bar" style="--h:70%"></div>
+      <div class="wave-bar" style="--h:55%"></div>
+      <div class="wave-bar" style="--h:90%"></div>
+      <div class="wave-bar" style="--h:60%"></div>
+      <div class="wave-bar" style="--h:80%"></div>
+      <div class="wave-bar" style="--h:45%"></div>
+      <div class="wave-bar" style="--h:75%"></div>
+      <div class="wave-bar" style="--h:50%"></div>
+      <div class="wave-bar" style="--h:85%"></div>
+      <div class="wave-bar" style="--h:65%"></div>
+      <div class="wave-bar" style="--h:95%"></div>
+      <div class="wave-bar" style="--h:55%"></div>
+      <div class="wave-bar" style="--h:70%"></div>
+      <div class="wave-bar" style="--h:40%"></div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="page-section">
+    <div class="section-label">What is TalkBuddy?</div>
+    <h2 class="section-title">Your voice, <span class="gradient-text">your words</span></h2>
+    <p class="section-desc">
+      A browser-based tool for seamless text-to-speech and speech-to-text conversion. No installations, no accounts — just open and talk.
+    </p>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🔊</div>
+        <h3>Text to Speech</h3>
+        <p>Real-time conversion with multiple voices and natural-sounding output</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🎤</div>
+        <h3>Speech to Text</h3>
+        <p>Capture your spoken words instantly with live interim transcription</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">💾</div>
+        <h3>Note Saving</h3>
+        <p>Save your notes locally and review them anytime in the built-in viewer</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📱</div>
+        <h3>Works Everywhere</h3>
+        <p>Fully responsive, optimized for desktop and mobile browsers</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Text Section -->
+  <section id="text" class="page-section studio-section">
+    <div class="section-label">Studio</div>
+    <h2 class="section-title">Voice <span class="gradient-text">Studio</span></h2>
+
+    <div class="studio-card">
+      <!-- Status bar -->
+      <div class="status-bar">
+        <div class="status-dot" id="statusDot"></div>
+        <span class="status-text" id="statusText">Ready</span>
+        <div class="char-count" id="charCount">0 characters</div>
+      </div>
+
+      <!-- Textarea -->
+      <textarea id="mainTextarea" placeholder="Type something, or hit 🎤 to speak…" oninput="updateCharCount()"></textarea>
+
+      <!-- Waveform visualizer (shows when mic is on) -->
+      <div class="mic-visualizer" id="micVisualizer">
+        <div class="mic-wave-bar"></div>
+        <div class="mic-wave-bar"></div>
+        <div class="mic-wave-bar"></div>
+        <div class="mic-wave-bar"></div>
+        <div class="mic-wave-bar"></div>
+        <div class="mic-wave-bar"></div>
+        <div class="mic-wave-bar"></div>
+        <div class="mic-wave-bar"></div>
+      </div>
+
+      <!-- Voice selector -->
+      <div class="voice-selector-row">
+        <label for="voiceSelect">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v4M8 23h8"/></svg>
+          Voice
+        </label>
+        <select id="voiceSelect"></select>
+        <div class="speed-control">
+          <label for="rateSlider">Speed: <span id="rateVal">1.0×</span></label>
+          <input type="range" id="rateSlider" min="0.5" max="2" step="0.1" value="1.0" oninput="updateRate(this.value)">
+        </div>
+        <div class="pitch-control">
+          <label for="pitchSlider">Pitch: <span id="pitchVal">1.0</span></label>
+          <input type="range" id="pitchSlider" min="0.5" max="2" step="0.1" value="1.0" oninput="updatePitch(this.value)">
+        </div>
+      </div>
+
+      <!-- Action buttons -->
+      <div class="controls">
+        <button class="btn btn-speak" id="speakBtn" onclick="speak()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+          Speak
+        </button>
+        <button class="btn btn-mic" id="micBtn" onclick="speak_type()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v4M8 23h8"/></svg>
+          Speak to Type
+        </button>
+        <button class="btn btn-save" onclick="note_save()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+          Save Note
+        </button>
+        <button class="btn btn-clear" onclick="clearText()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/></svg>
+          Clear
+        </button>
+      </div>
+    </div>
+
+    <!-- Saved Notes Viewer -->
+    <div class="notes-section" id="notesSection">
+      <div class="notes-header">
+        <h3>💾 Saved Notes <span class="notes-badge" id="notesBadge">0</span></h3>
+        <button class="btn-text-danger" onclick="clearAllNotes()">Clear All</button>
+      </div>
+      <div class="notes-list" id="notesList">
+        <div class="notes-empty">No notes saved yet. Type something and hit Save!</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="page-section">
+    <div class="section-label">Get in touch</div>
+    <h2 class="section-title">Say <span class="gradient-text">Hello</span></h2>
+    <p class="section-desc">Have feedback, ideas, or want to collaborate? Reach out!</p>
+    <div class="contact-grid">
+      <a href="mailto:indhiran0807@gmail.com" class="contact-card">
+        <div class="contact-icon">📧</div>
+        <div>
+          <div class="contact-label">Email</div>
+          <div class="contact-value">indhiran0807@gmail.com</div>
+        </div>
+      </a>
+      <a href="https://www.linkedin.com/in/indhiran-narayanamoorhi-229a87324/" target="_blank" class="contact-card">
+        <div class="contact-icon">💼</div>
+        <div>
+          <div class="contact-label">LinkedIn</div>
+          <div class="contact-value">Indhiran Narayanamoorthy</div>
+        </div>
+      </a>
+      <a href="https://github.com/Indhiran8214" target="_blank" class="contact-card">
+        <div class="contact-icon">🧑‍💻</div>
+        <div>
+          <div class="contact-label">GitHub</div>
+          <div class="contact-value">@Indhiran8214</div>
+        </div>
+      </a>
+      <div class="contact-card no-link">
+        <div class="contact-icon">📍</div>
+        <div>
+          <div class="contact-label">Location</div>
+          <div class="contact-value">HIT, Coimbatore, India</div>
+        </div>
+      </div>
+    </div>
+    <p class="contact-note">3rd-year B.Tech IT student · Open to collaborations in web dev, accessibility tools & AI 🚀</p>
+  </section>
+
+  <footer class="footer">
+    <span>Built with ❤️ by Indhiran · TalkBuddy © 2025</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
